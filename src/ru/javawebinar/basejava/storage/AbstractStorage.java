@@ -9,7 +9,7 @@ import java.util.List;
 
 public abstract class AbstractStorage implements Storage {
 
-    protected abstract List<Resume> copyResumes();
+    protected abstract List<Resume> getAllResumesCopy();
 
     protected abstract Object getSearchKey(String uuid);
 
@@ -43,6 +43,13 @@ public abstract class AbstractStorage implements Storage {
         return doGet(searchKey);
     }
 
+    @Override
+    public List<Resume> getAllSorted() {
+        List<Resume> resumes = getAllResumesCopy();
+        Collections.sort(resumes);
+        return resumes;
+    }
+
     private Object getExistedSearchKey(String uuid) {
         Object searchKey = getSearchKey(uuid);
         if (!isExist(searchKey)) {
@@ -57,12 +64,5 @@ public abstract class AbstractStorage implements Storage {
             throw new ExistStorageException(uuid);
         }
         return searchKey;
-    }
-
-    @Override
-    public List<Resume> getAllSorted() {
-        List<Resume> resumes = copyResumes();
-        Collections.sort(resumes);
-        return resumes;
     }
 }

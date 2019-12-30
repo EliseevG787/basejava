@@ -31,18 +31,21 @@ public class Resume implements Comparable<Resume> {
         if (o == null || getClass() != o.getClass()) return false;
 
         Resume resume = (Resume) o;
-
-        return uuid.equals(resume.uuid);
+        if (fullName.equals(resume.fullName)) {
+            return uuid.equals(resume.uuid);
+        } else {
+            return false;
+        }
     }
 
     @Override
     public int hashCode() {
-        return uuid.hashCode();
+        return uuid.hashCode() + fullName.hashCode();
     }
 
     @Override
     public String toString() {
-        return uuid;
+        return uuid + " " + fullName;
     }
 
     @Override

@@ -33,10 +33,11 @@ public abstract class AbstractArrayStorage extends AbstractStorage {
      * @return array, contains only Resumes in storage (without null)
      */
 
-    public List<Resume> copyResumes() {
+    @Override
+    protected List<Resume> getAllResumesCopy() {
         Resume[] arr = Arrays.copyOfRange(storage, 0, size);
-        List<Resume> resumes = Arrays.asList(arr);
-        return resumes;
+        return Arrays.asList(arr);
+
     }
 
     @Override
@@ -50,13 +51,13 @@ public abstract class AbstractArrayStorage extends AbstractStorage {
     }
 
     @Override
-    public void doDelete(Object index) {
+    protected void doDelete(Object index) {
         fillDeletedElement((Integer) index);
         storage[size - 1] = null;
         size--;
     }
 
-    public Resume doGet(Object index) {
+    protected Resume doGet(Object index) {
         return storage[(Integer) index];
     }
 
