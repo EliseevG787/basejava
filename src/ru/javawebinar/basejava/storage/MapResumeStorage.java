@@ -8,7 +8,7 @@ public class MapResumeStorage extends AbstractStorage {
     private Map<String, Resume> map = new HashMap<>();
 
     @Override
-    protected Object getSearchKey(String uuid) {
+    protected Resume getSearchKey(String uuid) {
         return map.get(uuid);
     }
 
@@ -19,7 +19,7 @@ public class MapResumeStorage extends AbstractStorage {
 
     @Override
     protected boolean isExist(Object resume) {
-        return map.containsValue(resume);
+        return resume != null;
     }
 
     @Override
@@ -43,11 +43,10 @@ public class MapResumeStorage extends AbstractStorage {
     }
 
     @Override
-    public List<Resume> getAllSorted() {
+    public List<Resume> copyResumes() {
         Collection<Resume> values = map.values();
         List<Resume> resumes = new ArrayList<>();
         resumes.addAll(0, values);
-        Collections.sort(resumes);
         return resumes;
     }
 

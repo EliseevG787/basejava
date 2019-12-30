@@ -38,17 +38,16 @@ public class MapUuidStorage extends AbstractStorage {
     }
 
     @Override
-    public void clear() {
-        map.clear();
-    }
-
-    @Override
-    public List<Resume> getAllSorted() {
+    protected List<Resume> copyResumes() {
         Collection<Resume> values = map.values();
         List<Resume> resumes = new ArrayList<>();
         resumes.addAll(0, values);
-        Collections.sort(resumes);
         return resumes;
+    }
+
+    @Override
+    public void clear() {
+        map.clear();
     }
 
     @Override
