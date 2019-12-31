@@ -31,16 +31,14 @@ public class Resume implements Comparable<Resume> {
         if (o == null || getClass() != o.getClass()) return false;
 
         Resume resume = (Resume) o;
-        if (fullName.equals(resume.fullName)) {
-            return uuid.equals(resume.uuid);
-        } else {
-            return false;
-        }
+        return uuid.equals(resume.uuid) && fullName.equals(resume.fullName);
     }
 
     @Override
     public int hashCode() {
-        return uuid.hashCode() + fullName.hashCode();
+        int result = uuid.hashCode();
+        result = 31 * result + (fullName == null ? 0 : fullName.hashCode());
+        return result;
     }
 
     @Override
