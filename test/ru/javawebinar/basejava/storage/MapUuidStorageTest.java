@@ -6,7 +6,3 @@ public class MapUuidStorageTest extends AbstractStorageTest {
         super(new MapUuidStorage());
     }
 }
-
-
-
-
