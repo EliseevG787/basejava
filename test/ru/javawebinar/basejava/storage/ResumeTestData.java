@@ -1,4 +1,4 @@
-package ru.javawebinar.basejava;
+package ru.javawebinar.basejava.storage;
 
 import ru.javawebinar.basejava.model.*;
 
@@ -28,19 +28,19 @@ public class ResumeTestData {
                 " WebLogic, WSO2", "Version control: Subversion, Git, Mercury, ClearCase, Perforce", "DB: PostgreSQL(наследование, pgplsql, " +
                 "PL/Python), Redis (Jedis), H2, Oracle,"));
         resume.addSection(SectionType.EXPERIENCE, new EnterpriseSection(
-                new Enterprise("Wrike", "wirke.com", LocalDate.parse("2014-10-01"), LocalDate.parse("2016-01-01"), "Старший" +
+                new Enterprise("Wrike", "wirke.com", LocalDate.of(2014, 10, 01), LocalDate.of(2016, 01, 01), "Старший" +
                         " разработчик (backend)", "Проектирование и разработка онлайн платформы управления проектами Wrike" +
                         " (Java 8 API, Maven, Spring, MyBatis, Guava, Vaadin, PostgreSQL, Redis). Двухфакторная аутентификация, авторизация по" +
                         " OAuth1, OAuth2, JWT SSO."),
-                new Enterprise("Yota", "yota.ru", LocalDate.parse("2008-06-01"), LocalDate.parse("2010-12-01"),
+                new Enterprise("Yota", "yota.ru", LocalDate.of(2008, 06, 01), LocalDate.of(2010, 12, 01),
                         "Ведущий специалист", "Дизайн и имплементация Java EE фреймворка для отдела \"Платежные Системы\" " +
                         "(GlassFish v2.1, v3, OC4J, EJB3, JAX-WS RI 2.1, Servlet 2.4, JSP, JMX, JMS, Maven2). Реализация администрирования, " +
                         "статистики и мониторинга фреймворка. Разработка online JMX клиента (Python/ Jython, Django, ExtJS)")));
         resume.addSection(SectionType.EDUCATION, new EnterpriseSection(
-                new Enterprise("Coursera", "coursera.org", LocalDate.parse("2013-03-01"), LocalDate.parse("2013-05-01"),
-                        "Functional Programming Principles in Scala\" by Martin Odersky", ""),
-                new Enterprise("Siemens AG", "siemens.ru", LocalDate.parse("2005-01-01"), LocalDate.parse("2005-04-01"),
-                        "3 месяца обучения мобильным IN сетям (Берлин) ", "")
+                new Enterprise("Coursera", "coursera.org", LocalDate.of(2013, 03, 01), LocalDate.of(2013, 05, 01),
+                        "Functional Programming Principles in Scala\" by Martin Odersky", null),
+                new Enterprise("Siemens AG", "siemens.ru", LocalDate.of(2005, 01, 01), LocalDate.of(2005, 04, 01),
+                        "3 месяца обучения мобильным IN сетям (Берлин) ", null)
         ));
     }
 }

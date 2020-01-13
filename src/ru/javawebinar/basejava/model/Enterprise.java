@@ -13,6 +13,10 @@ public class Enterprise {
     private String description;
 
     public Enterprise(String name, String url, LocalDate startDate, LocalDate endDate, String title, String description) {
+        Objects.requireNonNull(name, "name must not be null");
+        Objects.requireNonNull(startDate, "startDate must not be null");
+        Objects.requireNonNull(endDate, "endDate must not be null");
+        Objects.requireNonNull(title, "title must not be null");
         this.name = name;
         this.url = url;
         this.startDate = startDate;
